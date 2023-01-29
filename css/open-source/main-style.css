@@ -118,19 +118,39 @@ code.dark {
 .font-bold,
 .bold,
 b {
-    font-weight: bold;
+    font-weight: 700;
+}
+
+.semibold,
+.font-semibold {
+    font-weight: 600;
+}
+
+.medium,
+.font-medium {
+    font-weight: 500;
 }
 
 .font-light {
-    font-weight: lighter;
+    font-weight: 300;
 }
 
+.thin
+.font-thin {
+    font-weight: 100;
+}
+
+.font-extralight {
+    font-weight: 200;
+}
+
+.regular
 .font-regular {
-    font-weight: normal;
+    font-weight: 400;
 }
 
 .font-black {
-    font-weight: bolder;
+    font-weight: 800;
 }
 
 .auto-select {
@@ -216,3 +236,11 @@ td {
     color: rgb(240, 240, 240);
     background-color: rgb(47, 47, 47)
 }
+
+hr {
+    background-color: rgb(104, 104, 104);
+    
+    height: 0.0625em;
+    border: none;
+}
+
