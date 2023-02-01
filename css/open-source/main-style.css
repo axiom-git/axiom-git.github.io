@@ -11,13 +11,6 @@ body.padded {
     padding: 4em;
 }
 
-body.text-padded {
-    margin-top: 0em;
-    padding: 4em;
-    padding-top: 2em;
-    padding-bottom: 2em;
-}
-
 body.dark {
     background-color: rgb(25, 25, 25);
     color: rgb(240, 240, 240);
@@ -46,17 +39,22 @@ label.heading {
 
 ::selection {
     color: black;
-    background-color: rgb(128, 159, 218);
+    background-color: rgb(145, 174, 226);
 }
 
 p,
 label {
     font-size: 1em;
+    margin: 0;
 }
 
 a {
     color: rgb(240, 240, 240);
     font-size: 1em;
+}
+
+a.link-hover:hover {
+    text-decoration: none;
 }
 
 br {
@@ -116,6 +114,12 @@ code.dark {
     border-color: rgb(47, 47, 47);
 }
 
+div>code.dark,
+div>button.dark {
+    color: rgb(240, 240, 240);
+    background-color: rgb(25, 25, 25);
+}
+
 .font-bold,
 .bold,
 b {
@@ -136,8 +140,7 @@ b {
     font-weight: 300;
 }
 
-.thin
-.font-thin {
+.thin .font-thin {
     font-weight: 100;
 }
 
@@ -145,8 +148,7 @@ b {
     font-weight: 200;
 }
 
-.regular
-.font-regular {
+.regular .font-regular {
     font-weight: 400;
 }
 
@@ -211,20 +213,13 @@ div {
     border: none;
     outline: none;
     border-radius: 0.35em;
-    
+
     color: rgb(240, 240, 240);
     background-color: rgb(47, 47, 47);
 }
 
 div.padded {
     padding: 1.5em;
-}
-
-div.text-padded {
-    padding-top: 0.25em;
-    padding-bottom: 0.25em;
-    padding-right: 1.5em;
-    padding-left: 1.5em;
 }
 
 table,
@@ -240,7 +235,7 @@ td {
 
 hr {
     background-color: rgb(104, 104, 104);
-    
+
     height: 0.0625em;
     border: none;
 }
