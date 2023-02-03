@@ -114,8 +114,11 @@ code.dark {
     border-color: rgb(47, 47, 47);
 }
 
+div>p>code.dark,
+div>p>button.dark,
+div>button.dark,
 div>code.dark,
-div>button.dark {
+div>textarea.dark {
     color: rgb(240, 240, 240);
     background-color: rgb(25, 25, 25);
 }
@@ -238,4 +241,17 @@ hr {
 
     height: 0.0625em;
     border: none;
+}
+
+.margin {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.margin-bottom {
+    margin-bottom: 1em;
+}
+
+.margin-top {
+    margin-top: 1em;
 }
