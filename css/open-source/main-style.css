@@ -54,7 +54,7 @@ a {
 }
 
 a.link-hover:hover {
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 br {
@@ -241,11 +241,40 @@ hr {
 
     height: 0.0625em;
     border: none;
+    
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 .margin {
     margin-top: 1em;
     margin-bottom: 1em;
+}
+
+.margin2 {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.margin2-bottom {
+    margin-bottom: 2em;
+}
+
+.margin2-top {
+    margin-top: 2em;
+}
+
+.margin3 {
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+.margin3-bottom {
+    margin-bottom: 3em;
+}
+
+.margin3-top {
+    margin-top: 3em;
 }
 
 .margin-bottom {
