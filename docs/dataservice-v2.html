@@ -7,13 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DataService v2 - Docs</title>
     <link rel="stylesheet" href="https://canary-development.github.io/css/open-source/main-style.css">
-
-    <style>
-        hr {
-            margin-top: 2em;
-            margin-bottom: 2em;
-        }
-    </style>
 </head>
 
 <body class="padded">
@@ -43,6 +36,10 @@
         <li>It's simple and easy to learn</li>
         <li>The API is similar to the regular data storing API</li>
         <li>It uses <code>ProfileService</code>, one of the best known data saving modules at this time.</li>
+        <li>It includes session locking built in.</li>
+        <li>There has never been a single report of data loss using <code>ProfileService</code></li>
+        <li>The module includes <code>GlobalKey</code>s, which are keys that can be sent to active or inactive players.
+        </li>
     </ul>
     There are a few more reasons, but they will not be discussed here for simplicity.
     </p>
@@ -51,57 +48,13 @@
     <p class="margin">As stated before, the API of DataService is very similar to Roblox's own
         <code>DataStoreService</code> API. Below is a code sample that you are welcome to copy to set yourself up.
     </p>
-    <div class="dark padded margin">
-        <pre>
-            <code>
-                local DataService = require(game:GetService("ServerStorage").DataService)
-                local MyDataStore = DataService.CreateDataStore("MyDataStore", {
-                    Gems = 5;
-                    Cash = 100;
-                })
-                
-                -- Get the data store, and provide the data template
-                
-                local Players = game:GetService("Players")
-                
-                MyDataStore.SessionLockClaimed:Connect(function(player)
-                    print(`{player.Name}'s session lock has been claimed.`)
-                end)
-                
-                MyDataStore.SessionLockUnclaimed:Connect(function(player)
-                    print(`{player.Name}'s session lock has been unlclaimed.`)
-                end)
-                
-                Players.PlayerAdded:Connect(function(player)
-                    local PlayerData = MyDataStore:LoadDataAsync(player) -- Load the joining player's data
-                    
-                    local leaderstats = Instance.new("Folder")
-                    
-                    leaderstats.Name = "leaderstats"
-                    leaderstats.Parent = player
-                    
-                    local Cash = Instance.new("NumberValue")
-                    
-                    Cash.Name = "Cash"
-                    Cash.Value = PlayerData:GetKey("Cash") -- Get the player's 'Cash' key
-                    Cash.Parent = leaderstats
-                    
-                    local Gems = Instance.new("NumberValue")
-                    
-                    Gems.Name = "Gems"
-                    Gems.Value = PlayerData:GetKey("Gems") -- Get the player's 'Gems' key
-                    Gems.Parent = leaderstats
-                end)
-                
-                Players.PlayerRemoving:Connect(function(player)
-                    MyDataStore:UnclaimSessionLock(player, {
-                        Cash = player.leaderstats.Cash.Value;
-                        Gems = player.leaderstats.Gems.Value;
-                    }) -- Unclaim the player's session lock on leave, and save their values
-                end)
-            </code>
-        </pre>
-    </div>
+    <img class="margin" src="https://canary-development.github.io/docs/cashgems.png" width="70%">
+    <hr>
+    <p id="usage-2" class="heading semibold">Global Key Usage</p>
+    <p class="margin">As stated in the hook above, DataService has something called <code>GlobalKey</code>s, which are
+        code for <code>GlobalUpdates</code>. Below is an example that you are welcome to copy.
+    </p>
+    <img class="margin" src="https://canary-development.github.io/docs/globalkey.png" width="70%">
     <hr>
     <p id="api" class="heading semibold">API Reference</p>
     <div class="dark padded margin">
@@ -158,7 +111,7 @@
         </ul>
     </div>
     <div class="dark padded margin">
-        <p style="color: rgb(255, 232, 61)"><code
+        <p style="color: rgb(255, 228, 110)"><code
                 style="font-size: 1.5em">DataStoreObject:LoadDataAsync(player, reconcileData, claimedHandler)</code>
             YIELDS!</p>
         <p class="margin">Description:</p>
@@ -214,6 +167,24 @@
         </ul>
     </div>
     <div class="dark padded margin">
+        <code style="font-size: 1.5em">DataStoreObject:RemoveGlobalKeyAsync(userId, key, value)</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Sets a global key which is sent to the provided <code>UserId</code>.</p>
+        <p class="margin">Params:</p>
+        <ul>
+            <li class="margin"><b>userId: number</b><br>The player with the <code>UserId</code> which should recieve the
+                <code>GlobalKey</code>.
+            </li>
+            <li class="margin"><b>key: string</b><br>The type of <code>GlobalKey</code> is being sent. Can be checked to
+                see what the key actually is for.</li>
+            <li class="margin"><b>value: any</b><br>Data that should be assigned to the <code>GlobalKey</code>.</li>
+        </ul>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>void</b></li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
         <code style="font-size: 1.5em">PlayerDataObject:SetKey(key, value)</code>
         <p class="margin">Description:</p>
         <p class="margin bold">Sets the <code>key</code> key to the provided value.</p>
@@ -250,7 +221,7 @@
         </ul>
         <p class="margin-top">Returns:</p>
         <ul>
-            <li><b>GlobalKeys: {[key: string]: value}</b></li>
+            <li><b>GlobalKeys: {[number]: {Key: string, Value: any, KeyId: number}}</b></li>
         </ul>
     </div>
     <div class="dark padded margin">
@@ -260,6 +231,20 @@
         <p class="margin">Params:</p>
         <ul>
             <li class="margin"><b>key: string</b><br>The key to remove from the player's data.</li>
+        </ul>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>void</b></li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">PlayerDataObject:UpdateKey(key, callback)</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Updates the provided key.</p>
+        <p class="margin">Params:</p>
+        <ul>
+            <li class="margin"><b>key: string</b><br>The key to update on the player's data.</li>
+            <li class="margin"><b>callback: (oldValue: any) -> (newValue)</b><br>A function that recieves the old data, and can be used to for example increment cash easier.</li>
         </ul>
         <p class="margin-top">Returns:</p>
         <ul>
@@ -293,16 +278,56 @@
         </ul>
     </div>
     <div class="dark padded margin">
-        <code style="font-size: 1.5em">PlayerDataObject:GetSessionMetaData()</code>
+        <code style="font-size: 1.5em">PlayerDataObject:SetMetaTag(tag, value)</code>
         <p class="margin">Description:</p>
-        <p class="margin bold">Gets metadata about the player's current session.</p>
+        <p class="margin bold">Sets a metatag on the player's data.</p>
+        <p class="margin">Params:</p>
+        <ul>
+            <li class="margin"><b>tag: string</b><br>The name of the tag to set.</li>
+            <li class="margin"><b>value: any</b><br>The value to set said tag to.</li>
+        </ul>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>void</b></li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">PlayerDataObject:GetMetaTag(tag)</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Gets a metatag on the player's data.</p>
+        <p class="margin">Params:</p>
+        <ul>
+            <li class="margin"><b>tag: string</b><br>The name of the tag to get.</li>
+        </ul>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>value: any</b></li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">PlayerDataObject:RemoveMetaTag(tag)</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Removes a metatag on the player's data.</p>
+        <p class="margin">Params:</p>
+        <ul>
+            <li class="margin"><b>tag: string</b><br>The name of the tag to remove.</li>
+        </ul>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>void</b></li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">PlayerDataObject:GetDataUsage()</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Returns a percentage of currently used data for the datastore key.</p>
         <p class="margin">Params:</p>
         <ul>
             <li class="margin">None</li>
         </ul>
         <p class="margin-top">Returns:</p>
         <ul>
-            <li><b>SessionMetaData: {Name: string, LoadedAt: number, Key: string}</b></li>
+            <li><b>percent: number</b></li>
         </ul>
     </div>
     <hr>
@@ -323,6 +348,16 @@
         <p class="margin">Arguments:</p>
         <ul>
             <li class="margin"><b>player: Player</b><br>The player that had their session lock unclaimed.</li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">DataStoreObject.DataStoreCreated</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Fires when a data store is created on the server.</p>
+        <p class="margin">Arguments:</p>
+        <ul>
+            <li class="margin"><b>name: string</b><br>The name of the created datastore.</li>
+            <li class="margin"><b>defaultData: dictionary</b><br>The default data of the datastore.</li>
         </ul>
     </div>
     <div class="dark padded margin">
@@ -362,6 +397,46 @@
         <ul>
             <li class="margin"><b>key: string</b><br>The name of the global key that was added.</li>
             <li class="margin"><b>value: any</b><br>The value of the new global key.</li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">PlayerDataObject.KeyUpdated</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Fires when a key is updated.</p>
+        <p class="margin">Arguments:</p>
+        <ul>
+            <li class="margin"><b>key: string</b><br>The name of the key that was updated.</li>
+            <li class="margin"><b>newValue: any</b><br>The newest value of the key that was updated.</li>
+            <li class="margin"><b>oldValue: any</b><br>The value of the key before it was updated.</li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">PlayerDataObject.MetaTagAdded</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Fires when a new meta tag is added.</p>
+        <p class="margin">Arguments:</p>
+        <ul>
+            <li class="margin"><b>tag: string</b><br>The name of the tag that was added.</li>
+            <li class="margin"><b>value: any</b><br>The value of the new tag that was added.</li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">PlayerDataObject.MetaTagChanged</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Fires when a meta tag is changed.</p>
+        <p class="margin">Arguments:</p>
+        <ul>
+            <li class="margin"><b>tag: string</b><br>The name of the tag that was changed.</li>
+            <li class="margin"><b>value: any</b><br>The value of the changed value of the tag.</li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">PlayerDataObject.MetaTagRemoved</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Fires when a meta tag is removed.</p>
+        <p class="margin">Arguments:</p>
+        <ul>
+            <li class="margin"><b>tag: string</b><br>The name of the tag that was removed.</li>
         </ul>
     </div>
     <hr>
