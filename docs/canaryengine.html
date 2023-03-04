@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CanaryEngine - Docs</title>
+    <link rel="stylesheet" href="https://canary-development.github.io/css/open-source/main-style.css">
+</head>
+
+<body class="padded">
+    <p class="title bold margin-bottom">CanaryEngine Documentation</p>
+    <p class="description medium">CanaryEngine is a simple and lightweight game framework for Roblox, it's fully typed,
+        nicely organized, and the setup is a breeze.</p>
+    <hr>
+    <p class="heading semibold">Table of Contents</p>
+    <ul>
+        <li><a href="#intro" class="no-decor link-hover">Introduction</a></li>
+        <li><a href="#api" class="no-decor link-hover">API Reference</a></li>
+        <li><a href="#properties" class="no-decor link-hover">Properties</a></li>
+        <li><a href="#libraries" class="no-decor link-hover">Libraries</a></li>
+    </ul>
+    <hr>
+    <p id="intro" class="heading semibold">Introduction</p>
+    <p class="margin">CanaryEngine is a game framework developed by Canary. The setup is quite easy actually, first you
+        must download the plugin: <a href="https://create.roblox.com/marketplace/asset/12591143042/Canary-Studio"
+            class="no-decor link-hover bold">Canary Studio</a>. For the next steps, please view the video below:</p>
+    <iframe class="margin" width="560" height="315" src="https://www.youtube.com/embed/aqPdevTLxAY"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    <p>
+        Here are a few advantages to using CanaryEngine over other frameworks like <a class="no-decor link-hover"
+            href="https://github.com/Sleitnick/Knit">Knit</a> and others.
+    <ul>
+        <li>Fully typed</li>
+        <li>Simple API</li>
+        <li>Fully Documented</li>
+        <li>Easy Setup</li>
+        <li>Nicely Organized</li>
+        <li>Super Lightweight</li>
+        <li>Performant</li>
+    </ul>
+    Being performant is a large one for a framework. Though, in CanaryEngine, all setup is done on the server, and is
+    only done a single time. This is one of the many reasons that makes CanaryEngine more performant than some
+    alternative frameworks out there.
+    </p>
+    <hr>
+    <p id="api" class="heading semibold">API Reference</p>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">Package.GetEngineServer()</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Allows you to use the server sided version of cEngine.</p>
+        <p class="margin">Params:</p>
+        <ul>
+            <li class="margin"><b>None</b></li>
+        </ul>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>EngineServer: dictionary</b></li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">Package.GetEngineClient()</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Allows you to use the client sided version of cEngine.</p>
+        <p class="margin">Params:</p>
+        <ul>
+            <li class="margin"><b>None</b></li>
+        </ul>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>EngineClient: dictionary</b></li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">Package.CreateSignal()</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Creates a <code>ScriptSignal</code>, can be used in the same RunContext.</p>
+        <p class="margin">Params:</p>
+        <ul>
+            <li class="margin"><b>None</b></li>
+        </ul>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>ScriptSignal: CustomScriptSignal</b></li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">Package.GetLatestPackageVersionAsync()</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Returns the latest version of a package. You can also log a warning in the console if you
+            wish. If the web request fails, the function will return nil.</p>
+        <p class="margin">Params:</p>
+        <ul>
+            <li class="margin"><b>package: Instance</b><br>The package thats version should be checked.</li>
+            <li class="margin"><b>warnIfNotLatestVersion: boolean?</b><br>Tells whether if a warning should be displayed
+                in the output if the package isn't up to date.</li>
+        </ul>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>PackageVersion: number?</b></li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">EngineServer.CreateNetworkSignal()</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Creates a <code>NetworkSignal</code>, can be used in the other types of RunContexts.
+            Creating
+            another <code>NetworkSignal</code> in another script with name <code>name</code> will allow you to fire and
+            connect to it.</p>
+        <p class="margin">Params:</p>
+        <ul>
+            <li class="margin"><b>name: string</b><br>The name of the new signal.</li>
+        </ul>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>NetworkSignal: ServerNetworkSignal</b></li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">EngineClient.CreateNetworkSignal()</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Creates a <code>NetworkSignal</code>, can be used in the other types of RunContexts.
+            Creating
+            another <code>NetworkSignal</code> in another script with name <code>name</code> will allow you to fire and
+            connect to it.</p>
+        <p class="margin">Params:</p>
+        <ul>
+            <li class="margin"><b>name: string</b><br>The name of the new signal.</li>
+        </ul>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>NetworkSignal: ClientNetworkSignal</b></li>
+        </ul>
+    </div>
+    <hr>
+    <p id="properties" class="heading semibold">Properties</p>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">EngineClient.Player</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">A simple reference to the <code>LocalPlayer</code>.</p>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>Player: Player</b></li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">EngineClient.Media</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Client media.</p>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>Media: typeof(Framework.Media.Client)</b></li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">EngineClient.Packages</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Client packages.</p>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>Packages: typeof(Framework.Packages.Client or Framework.Packages.Global)</b></li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">EngineClient.Packages.Client</code>
+        <p class="bold margin-top">Subproperty of <code>EngineClient.Packages</code></p>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Client packages.</p>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>Packages: typeof(Framework.Packages.Client)</b></li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">EngineClient.Packages.Global</code>
+        <p class="bold margin-top">Subproperty of <code>EngineClient.Packages</code></p>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Global packages.</p>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>Packages: typeof(Framework.Packages.Global)</b></li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">EngineClient.PreinstalledPackages</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Packages that have already been installed on the framework. (client)</p>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>Packages: dictionary</b></li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">EngineServer.Media</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Server media.</p>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>Media: typeof(Framework.Media.Server)</b></li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">EngineServer.Packages</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Server packages.</p>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>Packages: typeof(Framework.Packages.Server or Framework.Packages.Global)</b></li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">EngineServer.Packages.Server</code>
+        <p class="bold margin-top">Subproperty of <code>EngineServer.Packages</code></p>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Server packages.</p>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>Packages: typeof(Framework.Packages.Server)</b></li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">EngineServer.Packages.Global</code>
+        <p class="bold margin-top">Subproperty of <code>EngineServer.Packages</code></p>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Global packages.</p>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>Packages: typeof(Framework.Packages.Global)</b></li>
+        </ul>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">EngineServer.PreinstalledPackages</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">Packages that have already been installed on the framework. (server)</p>
+        <p class="margin-top">Returns:</p>
+        <ul>
+            <li><b>Packages: dictionary</b></li>
+        </ul>
+    </div>
+    <hr>
+    <p id="libraries" class="heading semibold">Libraries</p>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">Package.Utility</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">The Utility library, comes with utility functions such as <code>xassert()</code> and
+            <code>ArrayToDictionary()</code>
+        </p>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">Package.Benchmark</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">The Benchmarking library, useful for benchmarking (hence the name), comes with a
+            constructor and things like <code>BenchmarkObject:Start()</code> and <code>BenchmarkObject:Start()</code>.
+        </p>
+    </div>
+    <div class="dark padded margin">
+        <code style="font-size: 1.5em">Package.Serialize</code>
+        <p class="margin">Description:</p>
+        <p class="margin bold">The Serialize library is useful for serializing primitive types that need to be stored in
+            a data store or sent across server-client boundaries. Uses <a class="no-decor link-hover"
+                href="https://github.com/commitblue/blueserializer">BlueSerializer</a> by <a class="no-decor link-hover"
+                href="https://github.com/commitblue">@commitblue</a>.</p>
+    </div>
+    <hr>
+    <p style="text-align: center" class="no-select">Copyright (c) 2023 Canary Projects</p>
+</body>
+
+</html>
+</body>
+
+</html>
