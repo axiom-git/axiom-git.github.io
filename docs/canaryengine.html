@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CanaryEngine - Docs</title>
     <link rel="stylesheet" href="https://canary-development.github.io/css/open-source/main-style.css">
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/123901489?s=200&v=4">
 </head>
 
 <body class="padded">
@@ -16,7 +17,12 @@
     <hr>
     <p class="heading semibold">Table of Contents</p>
     <ul>
-        <li><a href="#intro" class="no-decor link-hover">Introduction</a></li>
+        <li><a href="#intro" class="no-decor link-hover">Introduction</a>
+            <ul>
+                <li><a href="#networksignal-usage" class="no-decor link-hover">Use NetworkSignal to replicate data</a>
+                </li>
+            </ul>
+        </li>
         <li><a href="#api" class="no-decor link-hover">API Reference</a></li>
         <li><a href="#properties" class="no-decor link-hover">Properties</a></li>
         <li><a href="#libraries" class="no-decor link-hover">Libraries</a></li>
@@ -44,8 +50,21 @@
     </ul>
     Being performant is a large one for a framework. Though, in CanaryEngine, all setup is done on the server, and is
     only done a single time. This is one of the many reasons that makes CanaryEngine more performant than some
-    alternative frameworks out there.
+    alternative frameworks out there. The networking system is also something we kept in mind while creating the
+    framework. We always thought that Roblox's <code>RemoteEvents</code> were annoying to work with due to the fact that
+    you have to reference them and create them multiple times. They are also extremely slow when for use cases like head
+    rotation. CanaryEngine's networking system is crazy fast and crazy simple, avoiding the use of tuples for a better
+    type checking experience.
     </p>
+    <hr>
+    <p id="networksignal-usage" class="heading semibold">Use <code>NetworkSignal</code>'s to replicate data</p>
+    <p class="margin">Since <code>NetworkSignal</code>'s are useful for replicating data across the server-client
+        boundary, here is a quick little demo of them transfering player data. <b>I still recommend using attributes
+            though, they are the fastest method and arguably the easiest method.</b></p>
+    <p class="margin-bottom bold">Server Code:</p>
+    <img src="https://canary-development.github.io/docs/servernetwork.png" width="70%">
+    <p class="margin bold">Client Code:</p>
+    <img src="https://canary-development.github.io/docs/clientnetwork.png" width="70%">
     <hr>
     <p id="api" class="heading semibold">API Reference</p>
     <div class="dark padded margin">
