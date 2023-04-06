@@ -120,15 +120,6 @@ code.dark {
     border-color: rgb(47, 47, 47);
 }
 
-div>p>code.dark,
-div>p>button.dark,
-div>button.dark,
-div>code.dark,
-div>textarea.dark {
-    color: rgb(240, 240, 240);
-    background-color: rgb(25, 25, 25);
-}
-
 .font-bold,
 .bold,
 b {
@@ -231,6 +222,7 @@ div {
 
     color: rgb(240, 240, 240);
     background-color: rgb(47, 47, 47);
+    overflow-x: scroll;
 }
 
 div.padded {
