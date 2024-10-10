@@ -48,15 +48,8 @@ button:hover {
 .page-users {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 17em 17em;
   gap: 22px;
-}
-
-.page-users.developers,
-.page-users.staff,
-.page-users.admins,
-.page-users.moderators,
-.page-users.contributors {
-  grid-template-rows: 17em;
 }
 
 .page-users.qa {
