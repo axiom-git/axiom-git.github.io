@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta content="Lumin Labs" property="og:title" />
+    <meta content="Innovating and developing within the gaming industry" property="og:description" />
+    <meta content="https://lumin-dev.github.io" property="og:url" />
+    <meta content="https://lumin-dev.github.io/assets/logo.svg" property="og:image" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lumin</title>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <base href="/src/">
+    <link rel="icon" type="image/x-icon" href="public/favicon.ico" />
+    <link rel="stylesheet" href="output.css">
+</head>
+
+<body class="select-none flex font-inter items-center justify-center min-h-screen bg-background text-white">
+    <div class="relative w-full h-screen">
+        <img class="bg-[url(public/img/temp.jpg)] bg-cover blur-sm w-full h-full">
+        <nav class="absolute top-0 left-0 w-full h-14 bg-background border-b-1 border-b-divider p-4 z-10">
+            <div class="max-w-7xl mx-auto flex justify-between">
+                <span class="flex items-center gap-2">
+                    <img src="public/img/logo.svg" alt="logo"
+                        class="h-10 w-auto object-center transform -translate-y-2">
+                </span>
+                <ul class="flex gap-8">
+                    <li x-data="{ open: false }" class="relative -translate-y-2">
+                        <button @click="open = !open" class="bg-gray-700 p-2 rounded-md">
+                            About Us
+                        </button>
+
+                        <ul x-show="open" @click.away="open = false"
+                            class="absolute left-1/2 transform -translate-x-1/2 w-42 top-14 text-left bg-background border-1 border-divider text-white rounded-md shadow-lg"
+                            x-transition:enter="transition-opacity duration-50 ease-in"
+                            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                            x-transition:leave="transition-opacity duration-50 ease-out"
+                            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">About</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Newsroom</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Team</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Partners</a></li>
+                        </ul>
+                    </li>
+
+                    <li x-data="{ open: false }" class="relative -translate-y-2">
+                        <button @click="open = !open" class="bg-gray-700 p-2 rounded-md">
+                            Resources
+                        </button>
+
+                        <ul x-show="open" @click.away="open = false"
+                            class="absolute left-1/2 transform -translate-x-1/2 w-42 top-14 text-left bg-background border-1 border-divider text-white rounded-md shadow-lg"
+                            x-transition:enter="transition-opacity duration-50 ease-in"
+                            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                            x-transition:leave="transition-opacity duration-50 ease-out"
+                            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Socials</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Help Center</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Contact</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Branding Kit</a></li>
+                        </ul>
+                    </li>
+
+                    <li x-data="{ open: false }" class="relative -translate-y-2">
+                        <button @click="open = !open" class="bg-gray-700 p-2 rounded-md">
+                            Explore
+                        </button>
+
+                        <ul x-show="open" @click.away="open = false"
+                            class="absolute left-1/2 transform -translate-x-1/2 w-42 top-14 text-left bg-background border-1 border-divider text-white rounded-md shadow-lg"
+                            x-transition:enter="transition-opacity duration-50 ease-in"
+                            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                            x-transition:leave="transition-opacity duration-50 ease-out"
+                            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">UI Framework</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Game Framework</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Creative</a></li>
+                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Previewer</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</body>
+
+</html>
