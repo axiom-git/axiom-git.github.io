@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap')
+layer(base);
+
+@import 'tailwindcss';
+@font-face {
+    font-family: 'NerdFont';
+    src: url('/public/nerdfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@theme {
+  --font-*: initial;
+  --font-inter: Inter, sans-serif;
+  --font-icon: 'NerdFont', monospace;
+
+  --text-*: initial;
+  --text-title: 42px;
+  --text-heading: 28px;
+  --text-item: 16px;
+  --text-tiny: 12px;
+
+  --color-*: initial;
+  --color-background: #0c0c0c;
+  --color-container: #070707;
+  --color-white: #ffffff;
+  --color-divider: #232323;
+  --color-link: #93ceff;
+  --color-info: #494949;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
