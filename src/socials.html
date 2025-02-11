@@ -2,14 +2,15 @@
 <html lang="en">
 
 <head>
-    <meta content="Newsroom - Lumin Labs" property="og:title" />
-    <meta content="Keep up with Lumin and learn about new product releases or innovations" property="og:description" />
+    <meta content="Socials - Lumin Labs" property="og:title" />
+    <meta content="Short-links to our social media platforms and projects" property="og:description" />
     <meta content="https://lumin-org.github.io" property="og:url" />
     <meta content="https://lumin-org.github.io/src/public/img/logo.svg" property="og:image" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Newsroom - Lumin</title>
+    <title>Socials - Lumin</title>
     <script src="js/menu.js"></script>
+    <script src="js/clipboard.js"></script>
     <link rel="icon" type="image/x-icon" href="public/favicon.ico" />
     <link rel="stylesheet" href="output.css">
 </head>
@@ -45,7 +46,8 @@
                             <li><a href="./socials.html" class="block px-4 py-2 hover:bg-gray-600">Socials</a>
                             <li><a href="./help.html" class="block px-4 py-2 hover:bg-gray-600">Help Center</a></li>
                             <li><a href="./contact.html" class="block px-4 py-2 hover:bg-gray-600">Contact</a></li>
-                            <li><a href="./branding.html" class="block px-4 py-2 hover:bg-gray-600">Branding Kit</a></li>
+                            <li><a href="./branding.html" class="block px-4 py-2 hover:bg-gray-600">Branding Kit</a>
+                            </li>
                         </ul>
                     </li>
 
@@ -55,10 +57,14 @@
                         </button>
                         <ul
                             class="dropdownMenu hidden transition-opacity duration-100 absolute left-1/2 transform -translate-x-1/2 w-42 top-14 text-left bg-background border-1 border-divider text-white rounded-md shadow-lg opacity-0">
-                            <li><a href="./project/ui.html" class="block px-4 py-2 hover:bg-gray-600">UI Framework</a></li>
-                            <li><a href="./project/framework.html" class="block px-4 py-2 hover:bg-gray-600">Game Framework</a></li>
-                            <li><a href="./project/creative.html" class="block px-4 py-2 hover:bg-gray-600">Creative</a></li>
-                            <li><a href="./project/previewer.html" class="block px-4 py-2 hover:bg-gray-600">Previewer</a></li>
+                            <li><a href="./project/ui.html" class="block px-4 py-2 hover:bg-gray-600">UI Framework</a>
+                            </li>
+                            <li><a href="./project/framework.html" class="block px-4 py-2 hover:bg-gray-600">Game
+                                    Framework</a></li>
+                            <li><a href="./project/creative.html" class="block px-4 py-2 hover:bg-gray-600">Creative</a>
+                            </li>
+                            <li><a href="./project/previewer.html"
+                                    class="block px-4 py-2 hover:bg-gray-600">Previewer</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -66,9 +72,38 @@
         </nav>
         <div class="absolute inset-0 flex items-center">
             <div class="max-w-7xl mx-auto w-full px-4 md:px-8">
-                <p class="text-title font-bold">Newsroom</p>
-                <p class="text-item mt-2">keep up with Lumin and learn about new product releases or innovations</p>
-                <p class="text-info mt-16">no articles yet! check back later</p>
+                <p class="text-title font-bold">Socials</p>
+                <p class="text-item mt-2">short-links to our social media platforms and projects</p>
+                <div class="grid grid-cols-3 gap-6 mt-8">
+                    <div
+                        class="bg-background border-1 border-divider text-white text-left rounded-3xl font-mono text-title p-10 pt-6 pb-8">
+                        <p class="select-none">discord</p>
+                        <button class="cursor-pointer text-item bg-info w-36 h-10 rounded-[8px]"
+                            onclick="copySocialToClipboard('discord')">copy link <span
+                                class="font-icon"></span></button>
+                    </div>
+                    <div
+                        class="bg-background border-1 border-divider text-white text-left rounded-3xl font-mono text-title p-10 pt-6 pb-8">
+                        <p class="select-none">github</p>
+                        <button class="cursor-pointer text-item bg-info w-36 h-10 rounded-[8px]"
+                            onclick="copySocialToClipboard('github')">copy link <span
+                                class="font-icon"></span></button>
+                    </div>
+                    <div
+                        class="bg-background border-1 border-divider text-white text-left rounded-3xl font-mono text-title p-10 pt-6 pb-8">
+                        <p class="select-none">bluesky</p>
+                        <button class="cursor-pointer text-item bg-info w-36 h-10 rounded-[8px]"
+                            onclick="copySocialToClipboard('bluesky')">copy link <span
+                                class="font-icon"></span></button>
+                    </div>
+                    <div
+                        class="bg-background border-1 border-divider text-white text-left rounded-3xl font-mono text-title p-10 pt-6 pb-8">
+                        <p class="select-none">youtube</p>
+                        <button class="cursor-pointer text-item bg-info w-36 h-10 rounded-[8px]"
+                            onclick="copySocialToClipboard('youtube')">copy link <span
+                                class="font-icon"></span></button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
