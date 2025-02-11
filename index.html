@@ -3,84 +3,91 @@
 
 <head>
     <meta content="Lumin Labs" property="og:title" />
-    <meta content="Innovating and developing within the gaming industry" property="og:description" />
-    <meta content="https://lumin-dev.github.io" property="og:url" />
-    <meta content="https://lumin-dev.github.io/assets/logo.svg" property="og:image" />
+    <meta content="Providing next generation tooling for developers" property="og:description" />
+    <meta content="https://lumin-org.github.io" property="og:url" />
+    <meta content="https://lumin-org.github.io/src/public/img/logo.svg" property="og:image" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lumin</title>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <base href="/src/">
+    <script src="js/menu.js"></script>
+    <script type="module" src="js/stats.js"></script>
     <link rel="icon" type="image/x-icon" href="public/favicon.ico" />
     <link rel="stylesheet" href="output.css">
 </head>
 
-<body class="select-none flex font-inter items-center justify-center min-h-screen bg-background text-white">
+<body class="flex font-text items-center justify-center min-h-screen bg-background text-white">
     <div class="relative w-full h-screen">
-        <img class="bg-[url(public/img/temp.jpg)] bg-cover blur-sm w-full h-full">
         <nav class="absolute top-0 left-0 w-full h-14 bg-background border-b-1 border-b-divider p-4 z-10">
-            <div class="max-w-7xl mx-auto flex justify-between">
+            <div class="max-w-7xl mx-auto flex justify-between select-none">
                 <span class="flex items-center gap-2">
-                    <img src="public/img/logo.svg" alt="logo"
-                        class="h-10 w-auto object-center transform -translate-y-2">
+                    <a href="./"><img src="public/img/logo.svg" alt="logo"
+                            class="h-10 w-auto transform -translate-y-2"></a>
                 </span>
                 <ul class="flex gap-8">
-                    <li x-data="{ open: false }" class="relative -translate-y-2">
-                        <button @click="open = !open" class="bg-gray-700 p-2 rounded-md">
+                    <li class="relative -translate-y-2">
+                        <button class="dropdownButton bg-gray-700 p-2 rounded-md">
                             About Us
                         </button>
-
-                        <ul x-show="open" @click.away="open = false"
-                            class="absolute left-1/2 transform -translate-x-1/2 w-42 top-14 text-left bg-background border-1 border-divider text-white rounded-md shadow-lg"
-                            x-transition:enter="transition-opacity duration-50 ease-in"
-                            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-                            x-transition:leave="transition-opacity duration-50 ease-out"
-                            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">About</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Newsroom</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Team</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Partners</a></li>
+                        <ul
+                            class="dropdownMenu hidden transition-opacity duration-100 absolute left-1/2 transform -translate-x-1/2 w-42 top-14 text-left bg-background border-1 border-divider text-white rounded-md shadow-lg opacity-0">
+                            <li><a href="./about.html" class="block px-4 py-2 hover:bg-gray-600">About</a></li>
+                            <li><a href="./newsroom.html" class="block px-4 py-2 hover:bg-gray-600">Newsroom</a></li>
+                            <li><a href="./team.html" class="block px-4 py-2 hover:bg-gray-600">Team</a></li>
+                            <li><a href="./partners.html" class="block px-4 py-2 hover:bg-gray-600">Partners</a></li>
                         </ul>
                     </li>
 
-                    <li x-data="{ open: false }" class="relative -translate-y-2">
-                        <button @click="open = !open" class="bg-gray-700 p-2 rounded-md">
+                    <li class="relative -translate-y-2">
+                        <button class="dropdownButton bg-gray-700 p-2 rounded-md">
                             Resources
                         </button>
-
-                        <ul x-show="open" @click.away="open = false"
-                            class="absolute left-1/2 transform -translate-x-1/2 w-42 top-14 text-left bg-background border-1 border-divider text-white rounded-md shadow-lg"
-                            x-transition:enter="transition-opacity duration-50 ease-in"
-                            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-                            x-transition:leave="transition-opacity duration-50 ease-out"
-                            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Socials</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Help Center</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Contact</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Branding Kit</a></li>
+                        <ul
+                            class="dropdownMenu hidden transition-opacity duration-100 absolute left-1/2 transform -translate-x-1/2 w-42 top-14 text-left bg-background border-1 border-divider text-white rounded-md shadow-lg opacity-0">
+                            <li><a href="./socials.html" class="block px-4 py-2 hover:bg-gray-600">Socials</a>
+                            <li><a href="./help.html" class="block px-4 py-2 hover:bg-gray-600">Help Center</a></li>
+                            <li><a href="./contact.html" class="block px-4 py-2 hover:bg-gray-600">Contact</a></li>
+                            <li><a href="./branding.html" class="block px-4 py-2 hover:bg-gray-600">Branding Kit</a></li>
                         </ul>
                     </li>
 
-                    <li x-data="{ open: false }" class="relative -translate-y-2">
-                        <button @click="open = !open" class="bg-gray-700 p-2 rounded-md">
+                    <li class="relative -translate-y-2">
+                        <button class="dropdownButton bg-gray-700 p-2 rounded-md">
                             Explore
                         </button>
-
-                        <ul x-show="open" @click.away="open = false"
-                            class="absolute left-1/2 transform -translate-x-1/2 w-42 top-14 text-left bg-background border-1 border-divider text-white rounded-md shadow-lg"
-                            x-transition:enter="transition-opacity duration-50 ease-in"
-                            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-                            x-transition:leave="transition-opacity duration-50 ease-out"
-                            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">UI Framework</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Game Framework</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Creative</a></li>
-                            <li><a href="#" class="block px-4 py-2 hover:bg-gray-600">Previewer</a></li>
+                        <ul
+                            class="dropdownMenu hidden transition-opacity duration-100 absolute left-1/2 transform -translate-x-1/2 w-42 top-14 text-left bg-background border-1 border-divider text-white rounded-md shadow-lg opacity-0">
+                            <li><a href="./project/ui.html" class="block px-4 py-2 hover:bg-gray-600">UI Framework</a></li>
+                            <li><a href="./project/framework.html" class="block px-4 py-2 hover:bg-gray-600">Game Framework</a></li>
+                            <li><a href="./project/creative.html" class="block px-4 py-2 hover:bg-gray-600">Creative</a></li>
+                            <li><a href="./project/previewer.html" class="block px-4 py-2 hover:bg-gray-600">Previewer</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
         </nav>
+        <div class="absolute inset-0 flex items-center">
+            <div class="max-w-7xl mx-auto w-full px-4 md:px-8">
+                <h1 class="text-title font-bold transform -translate-y-2">Lumin Labs</h1>
+                <p class="text-item mt-2">providing next generation tooling for developers</p>
+                <div class="grid grid-cols-3 gap-6 mt-24 h-40">
+                    <div
+                        class="bg-background border-1 border-divider text-white text-center rounded-3xl font-mono text-title p-10">
+                        <p>STARS</p>
+                        <span id="starsCounter">0</span>
+                    </div>
+                    <div
+                        class="bg-background border-1 border-divider text-white text-center rounded-3xl font-mono text-title p-10">
+                        <p>PROJECTS</p>
+                        <span id="projectsCounter">0</span>
+                    </div>
+                    <div
+                        class="bg-background border-1 border-divider text-white text-center rounded-3xl font-mono text-title p-10">
+                        <p>MEMBERS</p>
+                        <span id="membersCounter">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
