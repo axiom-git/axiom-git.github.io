@@ -2,6 +2,7 @@
   "dependencies": {
     "@tailwindcss/cli": "^4.0.5",
     "alpinejs": "^3.14.8",
+    "countup.js": "^2.8.0",
     "tailwindcss": "^4.0.5"
   }
 }
