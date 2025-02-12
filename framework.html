@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta content="Partners - Lumin Labs" property="og:title" />
-    <meta content="A list of development studios we are partnered with" property="og:description" />
+    <meta content="Framework - Lumin Labs" property="og:title" />
+    <meta content="A featherlight framework for Luau games" property="og:description" />
     <meta content="https://lumin-org.github.io" property="og:url" />
     <meta content="https://lumin-org.github.io/src/public/img/logo.svg" property="og:image" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Partners - Lumin</title>
+    <title>Framework - Lumin</title>
     <script src="js/menu.js"></script>
     <link rel="icon" type="image/x-icon" href="public/favicon.ico" />
     <link rel="stylesheet" href="output.css">
@@ -44,7 +44,8 @@
                             class="dropdownMenu hidden transition-opacity duration-100 absolute left-1/2 transform -translate-x-1/2 w-42 top-14 text-left bg-background border-1 border-divider text-white rounded-md shadow-lg opacity-0">
                             <li><a href="./socials.html" class="block px-4 py-2 hover:bg-gray-600">Socials</a>
                             <li><a href="./contact.html" class="block px-4 py-2 hover:bg-gray-600">Contact</a></li>
-                            <li><a href="./branding.html" class="block px-4 py-2 hover:bg-gray-600">Branding Kit</a></li>
+                            <li><a href="./branding.html" class="block px-4 py-2 hover:bg-gray-600">Branding Kit</a>
+                            </li>
                         </ul>
                     </li>
 
@@ -55,7 +56,8 @@
                         <ul
                             class="dropdownMenu hidden transition-opacity duration-100 absolute left-1/2 transform -translate-x-1/2 w-42 top-14 text-left bg-background border-1 border-divider text-white rounded-md shadow-lg opacity-0">
                             <li><a href="./ui.html" class="block px-4 py-2 hover:bg-gray-600">UI Framework</a></li>
-                            <li><a href="./framework.html" class="block px-4 py-2 hover:bg-gray-600">Game Framework</a></li>
+                            <li><a href="./framework.html" class="block px-4 py-2 hover:bg-gray-600">Game Framework</a>
+                            </li>
                             <li><a href="./creative.html" class="block px-4 py-2 hover:bg-gray-600">Creative</a></li>
                             <li><a href="./previewer.html" class="block px-4 py-2 hover:bg-gray-600">Previewer</a></li>
                         </ul>
@@ -63,21 +65,31 @@
                 </ul>
             </div>
         </nav>
-        <div class="inset-0 flex items-center">
-            <div class="max-w-7xl mx-auto w-full px-4 md:px-8 mt-32">
-                <p class="text-title font-bold">Partners</p>
-                <p class="text-item mt-2">a list of development studios we are partnered with</p>
-                <p class="text-title font-bold mt-24">2025</p>
-                <div class="grid grid-cols-1 gap-6 mt-8">
+        <div class="absolute inset-0 flex items-center">
+            <div class="max-w-7xl mx-auto w-full px-4 md:px-8">
+                <p class="text-title font-bold">Framework</p>
+                <p class="text-item mt-2">a featherlight framework for Luau games</p>
+                <div class="flex mt-6 gap-4">
+                    <a class="cursor-pointer text-item bg-info p-2.5 pr-4.5 pl-4.5 rounded-[8px]"
+                        href="https://lumin-org.github.io/framework">docs <span class="font-icon"></span></a>
+                    <a class="cursor-pointer text-item bg-info p-2.5 pr-4.5 pl-4.5 rounded-[8px]"
+                        href="https://github.com/lumin-org/framework">source <span class="font-icon"></span></a>
+                    <a class="cursor-pointer text-item bg-info p-2.5 pr-4.5 pl-4.5 rounded-[8px]"
+                        href="https://pesde.dev/packages/lumin/framework">pesde <span class="font-icon"></span></a>
+                    <a class="cursor-pointer text-item bg-info p-2.5 pr-4.5 pl-4.5 rounded-[8px]"
+                        href="https://www.npmjs.com/package/@rbxts/lumin-framework">npm <span class="font-icon"></span></a>
+                </div>
+                <p class="text-title font-bold mt-24">Prerequisites</p>
+                <div class="grid grid-cols-3 gap-6 mt-4 h-40">
                     <div
                         class="bg-background border-1 border-divider text-white text-left rounded-3xl font-mono text-title p-10 pt-6">
-                        <p class="select-none">Delve Studios</p>
-                        <p class="text-item">We directly partnered with <b>Delve Studios</b>, to bring Lumin packages to upcoming titles</p>
+                        <p class="select-none">pesde</p>
+                        <p class="text-item">use versions above <i>0.5.3</i></p>
                     </div>
                     <div
                         class="bg-background border-1 border-divider text-white text-left rounded-3xl font-mono text-title p-10 pt-6">
-                        <p class="select-none">Administer</p>
-                        <p class="text-item"><b>Administer</b> parterned with us to use Lumin UI in an upcoming release</p>
+                        <p class="select-none">rojo</p>
+                        <p class="text-item">use versions above <i>7.4.4</i></p>
                     </div>
                 </div>
             </div>
