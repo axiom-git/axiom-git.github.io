@@ -1,7 +1,7 @@
 import { animateCounter } from "./count.js";
 import { fetchAsync } from "./utility/fetch.js";
 
-const org = "lumin-org";
+const org = "axiom-git";
 const server = "cwwcZtqJAt";
 
 document.addEventListener("DOMContentLoaded", async () => {
